@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroSustentável PR – Calculadora de Sustentabilidade | Agrinho 2026</title>
+    <meta name="description"
+        content="Descubra o índice de sustentabilidade da sua propriedade rural. Calculadora interativa para produtores do Paraná – Concurso Agrinho 2026." />
+
+    <!-- Google Fonts (permitido pelo edital) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- CSS externo obrigatório pelo edital -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ========== CABEÇALHO ========== -->
+    <header class="cabecalho" role="banner">
+        <div class="container cabecalho__conteudo">
+
+            <!-- Logo -->
+            <a href="#" class="cabecalho__logo" aria-label="AgroSustentável PR – Início">
+                <span class="logo-icone" aria-hidden="true">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </svg>
+                </span>
+                <span class="logo-texto">AgroSustentável <span class="logo-destaque">PR</span></span>
+            </a>
+
+            <!-- Navegação principal (desktop) -->
+            <nav class="cabecalho__nav" id="menu-nav" aria-label="Menu principal">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#numeros" class="nav-link">Impacto</a>
+                <a href="#calculadora" class="nav-link">Calculadora</a>
+                <a href="#clima" class="nav-link">Clima</a>
+                <a href="#dicas" class="nav-link">Dicas</a>
+            </nav>
+
+            <!-- Ações do cabeçalho -->
+            <div class="cabecalho__acoes">
+                <!-- Botão modo escuro/claro -->
+                <button id="btn-tema" class="btn-tema" aria-label="Alternar tema claro/escuro">
+                    <span id="icone-tema" aria-hidden="true">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </span>
+                </button>
+
+                <!-- Botão menu hambúrguer (mobile) -->
+                <button id="btn-menu" class="btn-menu" aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="menu-nav">
+                    <span class="btn-menu__linha"></span>
+                    <span class="btn-menu__linha"></span>
+                    <span class="btn-menu__linha"></span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Menu mobile overlay -->
+        <div id="menu-mobile" class="menu-mobile" aria-hidden="true">
+            <nav aria-label="Menu mobile">
+                <a href="#sobre" class="menu-mobile__link">Sobre</a>
+                <a href="#numeros" class="menu-mobile__link">Impacto</a>
+                <a href="#calculadora" class="menu-mobile__link">Calculadora</a>
+                <a href="#clima" class="menu-mobile__link">Clima</a>
+                <a href="#dicas" class="menu-mobile__link">Dicas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- ========== HERO (APRESENTAÇÃO) ========== -->
+    <section class="hero" aria-label="Apresentação do site">
+        <div class="container hero__conteudo">
+
+            <p class="hero__tag">🌿 Concurso Agrinho 2026</p>
+
+            <h1 class="hero__titulo">
+                Raízes Fortes,<br />
+                <span class="hero__titulo--destaque">Colheita Consciente</span>
+            </h1>
+
+            <p class="hero__subtitulo">
+                Descubra o impacto ambiental da sua propriedade rural e receba
+                dicas personalizadas para equilibrar produção e preservação do meio ambiente.
+            </p>
+
+            <a href="#calculadora" class="btn-principal" id="btn-hero-cta">
+                Calcular meu índice →
+            </a>
+
+            <!-- Estatísticas do Paraná -->
+            <div class="hero__stats" aria-label="Dados do agronegócio paranaense">
+                <div class="hero__stat">
+                    <span class="hero__stat-numero">3°</span>
+                    <span class="hero__stat-label">PR no ranking agrícola BR</span>
+                </div>
+                <div class="hero__stat-div" aria-hidden="true"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-numero">70%</span>
+                    <span class="hero__stat-label">da água doce vai p/ agricultura</span>
+                </div>
+                <div class="hero__stat-div" aria-hidden="true"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-numero">+2M</span>
+                    <span class="hero__stat-label">hectares de APPs no Paraná</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Elementos decorativos de fundo -->
+        <div class="hero__fundo" aria-hidden="true">
+            <div class="bolha bolha--1"></div>
+            <div class="bolha bolha--2"></div>
+            <div class="bolha bolha--3"></div>
+        </div>
+    </section>
+
+    <!-- Divisor de onda entre hero e sobre -->
+    <div class="divisor-onda" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cor-fundo)" />
+        </svg>
+    </div>
+
+    <!-- ========== SOBRE O PROJETO ========== -->
+    <section id="sobre" class="secao-sobre" aria-label="Sobre o projeto">
+        <div class="container">
+
+            <p class="secao-badge">🌱 Por que isso importa?</p>
+            <h2 class="secao-titulo">Sustentabilidade no Campo Paranaense</h2>
+            <p class="secao-subtitulo">
+                O Paraná é um dos maiores produtores agrícolas do Brasil. Equilibrar produção e
+                natureza é essencial para garantir colheitas hoje e no futuro.
+            </p>
+
+            <!-- Cards informativos -->
+            <div class="cards-info">
+
+                <article class="card-info">
+                    <span class="card-info__icone" aria-hidden="true">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                        </svg>
+                    </span>
+                    <h3 class="card-info__titulo">Uso da Água</h3>
+                    <p class="card-info__texto">
+                        A agricultura consome até <strong>70%</strong> da água doce mundial.
+                        Técnicas como gotejamento e captação de chuva reduzem até 50% do consumo
+                        hídrico, protegendo rios e aquíferos paranaenses.
+                    </p>
+                </article>
+
+                <article class="card-info">
+                    <span class="card-info__icone" aria-hidden="true">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
+                        </svg>
+                    </span>
+                    <h3 class="card-info__titulo">Carbono e Clima</h3>
+                    <p class="card-info__texto">
+                        O plantio direto e o reflorestamento podem
+                        <strong>sequestrar carbono</strong> e reduzir a pegada climática da
+                        propriedade, contribuindo diretamente para os compromissos climáticos do Brasil.
+                    </p>
+                </article>
+
+                <article class="card-info">
+                    <span class="card-info__icone" aria-hidden="true">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                        </svg>
+                    </span>
+                    <h3 class="card-info__titulo">Solo Saudável</h3>
+                    <p class="card-info__texto">
+                        Solos bem manejados produzem <strong>mais e por mais tempo</strong>.
+                        A adubação orgânica, a rotação de culturas e a cobertura vegetal aumentam
+                        a produtividade e protegem o ecossistema paranaense.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NÚMEROS DO IMPACTO ========== -->
+    <section id="numeros" class="secao-numeros" aria-label="Números e impacto da sustentabilidade agrícola">
+        <div class="container">
+
+            <p class="secao-badge">📊 Dados que mostram a diferença</p>
+            <h2 class="secao-titulo">O Impacto de Práticas Sustentáveis</h2>
+            <p class="secao-subtitulo">
+                Cada decisão na propriedade rural gera efeitos reais no meio ambiente e na economia.
+            </p>
+
+            <div class="numeros-grid">
+
+                <div class="numero-item">
+                    <span class="numero-item__valor" data-alvo="40">0</span><span class="numero-item__unidade">%</span>
+                    <p class="numero-item__label">de redução nos custos com energia solar</p>
+                </div>
+
+                <div class="numero-item numero-item--destaque">
+                    <span class="numero-item__valor" data-alvo="30">0</span><span class="numero-item__unidade">%</span>
+                    <p class="numero-item__label">menos agroquímicos com manejo integrado de pragas</p>
+                </div>
+
+                <div class="numero-item">
+                    <span class="numero-item__valor" data-alvo="50">0</span><span class="numero-item__unidade">%</span>
+                    <p class="numero-item__label">de economia de água com irrigação por gotejamento</p>
+                </div>
+
+                <div class="numero-item">
+                    <span class="numero-item__valor" data-alvo="20">0</span><span class="numero-item__unidade">%</span>
+                    <p class="numero-item__label">da área deve ser de preservação (exigência legal)</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CALCULADORA ========== -->
+    <section id="calculadora" class="secao-calculadora" aria-label="Calculadora de sustentabilidade">
+        <div class="container">
+
+            <p class="secao-badge">🧮 Ferramenta interativa</p>
+            <h2 class="secao-titulo">Calculadora de Sustentabilidade</h2>
+            <p class="secao-subtitulo">
+                Preencha os dados da sua propriedade e descubra seu índice de sustentabilidade.
+            </p>
+
+            <!-- Formulário da calculadora -->
+            <form id="form-calculadora" class="calculadora" novalidate>
+
+                <!-- BLOCO 1: Dados gerais -->
+                <fieldset class="calc-grupo">
+                    <legend class="calc-grupo__titulo">
+                        <span aria-hidden="true">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg>
+                        </span>
+                        Dados da Propriedade
+                    </legend>
+
+                    <div class="campo">
+                        <label class="campo__label" for="area-total">
+                            Área total da propriedade (hectares)
+                        </label>
+                        <input class="campo__input" type="number" id="area-total" name="area-total"
+                            min="1" max="10000" placeholder="Ex: 50" required />
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="area-preservacao">
+                            Área de preservação / mata nativa (hectares)
+                        </label>
+                        <input class="campo__input" type="number" id="area-preservacao" name="area-preservacao"
+                            min="0" max="10000" placeholder="Ex: 10" required />
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="cultura-principal">
+                            Principal cultura produzida
+                        </label>
+                        <select class="campo__input" id="cultura-principal" name="cultura-principal">
+                            <option value="">Selecione uma cultura</option>
+                            <option value="soja">Soja</option>
+                            <option value="milho">Milho</option>
+                            <option value="trigo">Trigo</option>
+                            <option value="cana">Cana-de-açúcar</option>
+                            <option value="cafe">Café</option>
+                            <option value="frutas">Fruticultura</option>
+                            <option value="hortalicas">Hortaliças</option>
+                            <option value="pecuaria">Pecuária</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <!-- BLOCO 2: Uso de água -->
+                <fieldset class="calc-grupo">
+                    <legend class="calc-grupo__titulo">
+                        <span aria-hidden="true">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                            </svg>
+                        </span>
+                        Uso de Água
+                    </legend>
+
+                    <div class="campo">
+                        <label class="campo__label" for="irrigacao">
+                            Utiliza irrigação?
+                        </label>
+                        <select class="campo__input" id="irrigacao" name="irrigacao">
+                            <option value="nao">Não utilizo irrigação</option>
+                            <option value="gotejamento">Sim – gotejamento (eficiente)</option>
+                            <option value="aspersao">Sim – aspersão (moderada)</option>
+                            <option value="inundacao">Sim – inundação (alta)</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="captacao-chuva">
+                            Faz captação de água da chuva?
+                        </label>
+                        <select class="campo__input" id="captacao-chuva" name="captacao-chuva">
+                            <option value="nao">Não</option>
+                            <option value="sim">Sim</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <!-- BLOCO 3: Práticas sustentáveis -->
+                <fieldset class="calc-grupo">
+                    <legend class="calc-grupo__titulo">
+                        <span aria-hidden="true">
+                            <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                            </svg>
+                        </span>
+                        Práticas Sustentáveis
+                    </legend>
+
+                    <div class="campo">
+                        <label class="campo__label" for="plantio-direto">
+                            Utiliza plantio direto?
+                        </label>
+                        <select class="campo__input" id="plantio-direto" name="plantio-direto">
+                            <option value="nao">Não</option>
+                            <option value="sim">Sim</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="rotacao-culturas">
+                            Faz rotação de culturas?
+                        </label>
+                        <select class="campo__input" id="rotacao-culturas" name="rotacao-culturas">
+                            <option value="nao">Não</option>
+                            <option value="sim">Sim</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="adubacao">
+                            Tipo de adubação utilizada
+                        </label>
+                        <select class="campo__input" id="adubacao" name="adubacao">
+                            <option value="quimica">Somente química</option>
+                            <option value="mista">Mista (química + orgânica)</option>
+                            <option value="organica">Somente orgânica / natural</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__label" for="energia-renovavel">
+                            Usa energia renovável (solar, biogás)?
+                        </label>
+                        <select class="campo__input" id="energia-renovavel" name="energia-renovavel">
+                            <option value="nao">Não</option>
+                            <option value="parcial">Parcialmente</option>
+                            <option value="sim">Sim, totalmente</option>
+                        </select>
+                    </div>
+
+                </fieldset>
+
+                <!-- Botão calcular -->
+                <button type="submit" id="btn-calcular" class="btn-principal btn-calcular">
+                    🌱 Calcular meu índice de sustentabilidade
+                </button>
+
+            </form><!-- fim .calculadora -->
+
+        </div>
+    </section>
+
+    <!-- ========== RESULTADO ========== -->
+    <section id="resultado" class="secao-resultado" aria-label="Resultado da calculadora" aria-live="polite">
+        <div class="container">
+
+            <div id="painel-resultado" class="painel-resultado painel-resultado--oculto">
+
+                <h2 class="secao-titulo">Seu Resultado</h2>
+
+                <!-- Definição do gradiente SVG para o anel de progresso -->
+                <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+                    <defs>
+                        <linearGradient id="grad-placar" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:var(--cor-verde-medio)" />
+                            <stop offset="100%" style="stop-color:var(--cor-verde-vivo)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <!-- Placar circular SVG -->
+                <div class="placar">
+                    <div class="placar__circulo">
+                        <svg class="placar__svg" width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+                            <circle class="placar__circulo-fundo" cx="90" cy="90" r="78" />
+                            <circle id="placar-progresso-circulo" class="placar__circulo-progresso" cx="90" cy="90"
+                                r="78" />
+                        </svg>
+                        <div class="placar__texto-centro">
+                            <span id="nota-numero" class="placar__numero">0</span>
+                            <span class="placar__max">/100</span>
+                        </div>
+                    </div>
+                    <p id="nota-texto" class="placar__classificacao">–</p>
+                </div>
+
+                <!-- Barra de progresso -->
+                <div class="barra-progresso-container" aria-label="Barra de progresso do índice">
+                    <div id="barra-progresso" class="barra-progresso" role="progressbar"
+                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <!-- Detalhamento por categoria -->
+                <div class="detalhes-resultado">
+
+                    <div class="detalhe-item">
+                        <span class="detalhe-item__icone" aria-hidden="true">🌳</span>
+                        <span class="detalhe-item__nome">Área de preservação</span>
+                        <span id="detalhe-area" class="detalhe-item__valor">–</span>
+                    </div>
+
+                    <div class="detalhe-item">
+                        <span class="detalhe-item__icone" aria-hidden="true">💧</span>
+                        <span class="detalhe-item__nome">Uso de água</span>
+                        <span id="detalhe-agua" class="detalhe-item__valor">–</span>
+                    </div>
+
+                    <div class="detalhe-item">
+                        <span class="detalhe-item__icone" aria-hidden="true">♻️</span>
+                        <span class="detalhe-item__nome">Práticas sustentáveis</span>
+                        <span id="detalhe-praticas" class="detalhe-item__valor">–</span>
+                    </div>
+
+                </div>
+
+                <!-- Mensagem personalizada -->
+                <div id="mensagem-personalizada" class="mensagem-personalizada"></div>
+
+                <!-- Botão de recalcular -->
+                <button id="btn-recalcular" class="btn-secundario">
+                    ↺ Recalcular
+                </button>
+
+            </div><!-- fim #painel-resultado -->
+
+        </div>
+    </section>
+
+    <!-- ========== CLIMA ========== -->
+    <section id="clima" class="secao-clima" aria-label="Clima e Tempo">
+        <div class="container">
+
+            <p class="secao-badge">⛅ Tempo em tempo real</p>
+            <h2 class="secao-titulo">Clima e Agricultura</h2>
+            <p class="secao-subtitulo">
+                Acompanhar as condições climáticas é fundamental para o planejamento do plantio
+                e da colheita. Confira as condições atuais da sua região:
+            </p>
+
+            <div class="clima-widget" id="clima-widget">
+                <div class="clima-estado-inicial">
+                    <p class="clima-texto-ajuda">Clique abaixo para verificar as condições climáticas em tempo real.</p>
+                    <div class="clima-botoes">
+                        <button id="btn-clima-local" class="btn-principal btn-pequeno">
+                            📍 Ver Clima da Minha Região
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DICAS ========== -->
+    <section id="dicas" class="secao-dicas" aria-label="Dicas de sustentabilidade">
+        <div class="container">
+
+            <p class="secao-badge">💡 Boas práticas</p>
+            <h2 class="secao-titulo">Dicas para um Agro mais Sustentável</h2>
+            <p class="secao-subtitulo">
+                Pequenas mudanças nas práticas agrícolas geram grandes impactos positivos
+                para o solo, a água e o clima do Paraná.
+            </p>
+
+            <!-- Lista de dicas -->
+            <div id="lista-dicas" class="lista-dicas">
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">01</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Plante árvores nativas nas bordas</h3>
+                        <p class="dica-card__texto">
+                            Corredores ecológicos com espécies nativas do Paraná protegem rios,
+                            retêm chuva e aumentam a biodiversidade. É exigência do Código Florestal.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">02</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Adote o plantio direto</h3>
+                        <p class="dica-card__texto">
+                            O plantio direto reduz a erosão do solo, melhora a retenção de água
+                            e sequestra carbono, contribuindo para o equilíbrio climático da região.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">03</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Instale painéis solares</h3>
+                        <p class="dica-card__texto">
+                            A energia solar reduz custos de produção em até 40% e elimina emissões
+                            de CO₂ ligadas ao consumo de energia elétrica rural.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">04</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Monitore o uso de agroquímicos</h3>
+                        <p class="dica-card__texto">
+                            O manejo integrado de pragas (MIP) reduz o uso de defensivos em até 30%,
+                            protegendo as abelhas, a qualidade da água e os consumidores.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">05</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Faça rotação de culturas</h3>
+                        <p class="dica-card__texto">
+                            Alternar culturas ao longo das safras melhora o solo, reduz pragas
+                            naturalmente e diminui a necessidade de insumos externos.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="dica-card">
+                    <span class="dica-card__numero" aria-hidden="true">06</span>
+                    <div class="dica-card__conteudo">
+                        <h3 class="dica-card__titulo">Colete e reaproveite água da chuva</h3>
+                        <p class="dica-card__texto">
+                            Cisternas e bacias de captação reduzem a dependência de poços e rios,
+                            garantindo água para irrigação mesmo em períodos de estiagem prolongada.
+                        </p>
+                    </div>
+                </article>
+
+            </div><!-- fim .lista-dicas -->
+
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ========== RODAPÉ ========== -->
+    <footer class="rodape" role="contentinfo">
+        <div class="container rodape__conteudo">
+
+            <p class="rodape__logo">🌿 AgroSustentável <span>PR</span></p>
+
+            <p class="rodape__texto">
+                Projeto desenvolvido por <strong>João Mateus de Souza Ferreira</strong> para o
+                <strong>Concurso Agrinho 2026</strong> –
+                Categoria Programação | Subcategoria 3 – Front-End Web
+            </p>
+            <p class="rodape__creditos">
+                C. E. Heitor Rocha Kramer | Prof. José Joelson do Nascimento | NRE de Guarapuava
+            </p>
+            <p class="rodape__creditos">
+                Tema: "Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"
+                | SENAR-PR &amp; SEED-PR
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- Container para notificações Toast -->
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- JavaScript externo obrigatório pelo edital -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
